@@ -1,29 +1,35 @@
 
-<div style="background: linear-gradient(#B3F6FC , #256EEE) no-repeat 0 0 / cover; height: 100%; width: 100%;">
-<div class="col-md-12" >
-	<div class="card card-container">
-		<img src="assets/img/login.png" style="width: 200px; height: 200px;" class="profile-img-card">
-		
-		<form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-			<div class="form-group">
-				<label for="name">Display Name</label>
-				 <input type="text" class="form-control" name="name" [(ngModel)]="form.name" required minlength="3" maxlength="20" #displayName="ngModel" />
+<div class="full w-full dark:bg-darkModecolors-42">
+	
+<div class="w-auto p-3  mx-auto max-w-4xl " >
+	<div class="card dark:bg-darkModecolors-59 card-container mx-auto rounded overflow-hidden shadow-lg">
+		<div>
+			<a (click)="loginPage()" routerLink="register" class="text-vuejs-198 dark:text-darkModecolors-252 ml-3">login</a>
+		</div>
+		<img src="assets/img/logo1.png" class="h-40 mx-auto">
+		<mat-card-title class="font-bold text-3xl text-center text-vuejs-183 dark:text-white">REGISTER</mat-card-title>
+		<form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate class="p-3">
+		<div class="grid grid-cols-2 gap-3">
+			<div class="form-group col-span-2">
+				<label for="name" class="text-black dark:text-white">Name</label>
+				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="name" [(ngModel)]="form.name" required minlength="3" maxlength="50" #displayName="ngModel" />
 				<div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
 					<div *ngIf="displayName.errors.required">Display Name is required</div>
 					<div *ngIf="displayName.errors.minlength">Display Name must be at least 3 characters</div>
-					<div *ngIf="displayName.errors.maxlength">Display Name must be at most 20 characters</div>
+					<div *ngIf="displayName.errors.maxlength">Display Name must be at most 50 characters</div>
 				</div>
 			</div>
-			<div class="form-group">
-				<label for="email">Email</label> <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel" />
+			<div class="form-group col-span-2">
+				<label for="email" class="text-black dark:text-white">Email</label> 
+				<input type="email" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="email" [(ngModel)]="form.email" required email #email="ngModel" />
 				<div class="alert-danger" *ngIf="f.submitted && email.invalid">
 					<div *ngIf="email.errors.required">Email is required</div>
 					<div *ngIf="email.errors.email">Email must be a valid email address</div>
 				</div>
 			</div>
-			<div class="form-group">
-				<label for="username">User name</label>
-				 <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3" maxlength="20" #displayName="ngModel" />
+			<div class="form-group col-span-2">
+				<label for="username" class="text-black dark:text-white">User name</label>
+				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="username" [(ngModel)]="form.username" required minlength="3" maxlength="20" #displayName="ngModel" />
 				<div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
 					<div *ngIf="displayName.errors.required">User name is required</div>
 					<div *ngIf="displayName.errors.minlength">User name must be at least 3 characters</div>
@@ -32,7 +38,8 @@
 			</div>
 
 			<div class="form-group">
-				<label for="password">Password</label> <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+				<label for="password" class="text-black dark:text-white">Password</label> 
+				<input type="password" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="password" [(ngModel)]="form.password" required minlength="6"
 					#password="ngModel" />
 				<div class="alert-danger" *ngIf="f.submitted && password.invalid">
 					<div *ngIf="password.errors.required">Password is required</div>
@@ -40,7 +47,8 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="matchingPassword">Confirm Password</label> <input type="password" class="form-control" name="matchingPassword" [(ngModel)]="form.matchingPassword"
+				<label for="matchingPassword" class="text-black dark:text-white">Confirm Password</label> 
+				<input type="password" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="matchingPassword" [(ngModel)]="form.matchingPassword"
 					required minlength="6" #matchingPassword="ngModel" />
 				<div class="alert-danger" *ngIf="f.submitted && matchingPassword.invalid">
 					<div *ngIf="matchingPassword.errors.required">Confirm Password is required</div>
@@ -49,8 +57,8 @@
 			</div>
 
 			<div class="form-group">
-				<label for="department">department</label>
-				 <input type="text" class="form-control" name="department" [(ngModel)]="form.department" required minlength="1" maxlength="20" #displayName="ngModel" />
+				<label for="department" class="text-black dark:text-white">department</label>
+				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="department" [(ngModel)]="form.department" required minlength="1" maxlength="20" #displayName="ngModel" />
 				<div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
 					<div *ngIf="displayName.errors.required">department  is required</div>
 					<div *ngIf="displayName.errors.minlength">department  must be at least 1 characters</div>
@@ -59,8 +67,8 @@
 			</div>
 
 			<div class="form-group">
-				<label for="jobTitle">jobTitle</label>
-				 <input type="text" class="form-control" name="jobTitle" [(ngModel)]="form.jobTitle" required minlength="1" maxlength="20" #displayName="ngModel" />
+				<label for="jobTitle" class="text-black dark:text-white">jobTitle</label>
+				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="jobTitle" [(ngModel)]="form.jobTitle" required minlength="1" maxlength="20" #displayName="ngModel" />
 				<div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
 					<div *ngIf="displayName.errors.required">jobTitle is required</div>
 					<div *ngIf="displayName.errors.minlength">jobTitle must be at least 1 characters</div>
@@ -68,9 +76,9 @@
 				</div>
 			</div>
 
-			<div class="form-group">
-				<label for="phone">phone</label>
-				 <input type="text" class="form-control" name="phone" [(ngModel)]="form.phone" required minlength="1" maxlength="20" #displayName="ngModel" />
+			<div class="form-group col-span-2">
+				<label for="phone" class="text-black dark:text-white">phone</label>
+				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="phone" [(ngModel)]="form.phone" required minlength="1" maxlength="20" #displayName="ngModel" />
 				<div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
 					<div *ngIf="displayName.errors.required">jobTitle is required</div>
 					<div *ngIf="displayName.errors.minlength">jobTitle must be at least 1 characters</div>
@@ -78,9 +86,9 @@
 				</div>
 			</div>
 
-			<div class="form-group">
-				<label for="imageUrl">imageUrl</label>
-				 <input type="text" class="form-control" name="imageUrl" [(ngModel)]="form.imageUrl" required  #displayName="ngModel" />
+			<div class="form-group col-span-2">
+				<label for="imageUrl" class="text-black dark:text-white">imageUrl</label>
+				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="imageUrl" [(ngModel)]="form.imageUrl" required  #displayName="ngModel" />
 				<div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
 					<div *ngIf="displayName.errors.required">jobTitle is required</div>
 					<div *ngIf="displayName.errors.minlength">jobTitle must be at least 1 characters</div>
@@ -88,16 +96,23 @@
 				</div>
 			</div>
 
-			<div class="form-group form-check">
-				<input type="checkbox" class="form-check-input" name="using2FA" [(ngModel)]="form.using2FA" #using2FA="ngModel" /><label class="form-check-label" for="using2FA">Use
-					Two Step Verification</label>
+			<div class="form-group form-check col-span-2 text-center">			
+						<div class="md:w-1/3"></div>
+						<label class="md:w-2/3 block text-gray-500 font-bold dark:text-white" >
+						  <input class="mr-2 leading-tight" type="checkbox" name="using2FA" [(ngModel)]="form.using2FA" #using2FA="ngModel"/>
+						  <span class="text-sm" for="using2FA">
+							Use Two Step Verification
+						  </span>
+						</label>
+					
 			</div>
-			<div class="form-group">
-				<button class="btn btn-primary btn-block">Sign Up</button>
+			<div class="form-group col-span-2">
+				<button class="btn btn-primary btn-block bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...">Sign Up</button>
 			</div>
 			<div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
 				Signup failed!<br />{{ errorMessage }}
 			</div>
+		</div>
 		</form>
 		<div class="alert alert-success" *ngIf="isSuccessful">
 			Your registration is successful!
@@ -108,4 +123,5 @@
 		</div>
 	</div>
 </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>

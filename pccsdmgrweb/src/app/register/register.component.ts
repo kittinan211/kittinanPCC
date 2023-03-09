@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   employee: Employee;
   socialProvider: 'LOCAL';
 
-  constructor(private authService: EmployeeService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: EmployeeService, private tokenStorage: TokenStorageService ,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -45,4 +45,7 @@ export class RegisterComponent implements OnInit {
     );
   }
 
+  loginPage(): void {
+    this.router.navigate(['../../login']);
+  }
 }

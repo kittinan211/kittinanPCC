@@ -22,7 +22,6 @@ export class PccEmployeeComponent implements OnInit {
   public employees: Employee[];
   public editEmployee: Employee;
   public deleteEmployee: Employee;
-
   getname: any;
 
   isLoggedIn = false;
@@ -33,7 +32,6 @@ export class PccEmployeeComponent implements OnInit {
   constructor(private employeeService: EmployeeService, private tokenStorage: TokenStorageService ,private router: Router) { }
 
   ngOnInit() {
-
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;

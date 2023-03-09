@@ -1,11 +1,4 @@
-.ie11Support {
-    display: block;
-    overflow: hidden;
-    max-height: 5.6em;
-    line-height: 1.3em;
-  }
-
-
+/* 
   #E0E0E0
 
 hr, .icon-bar {
@@ -26,4 +19,11 @@ hr {
     overflow: hidden;
     border-style: inset;
     border-width: 1px;
-}
+} */
+
+.ie11Support {
+    display: block;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.3em;
+  }

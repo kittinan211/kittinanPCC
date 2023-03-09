@@ -1,10 +1,10 @@
 
 
-<div style="background: linear-gradient(#B3F6FC , #256EEE) no-repeat 0 0 / cover; height: 100%; width: 100%;">
-<div style="margin: auto; margin-left: 40%;">
-  <mat-card>
-    <mat-card-title> <p><img src="assets/img/login.png" style="width: 200px; height: 200px;"></p></mat-card-title>
-    <mat-card-title style="color: #3A458A;">LOGIN</mat-card-title>
+<div class="h-screen w-full dark:bg-darkModecolors-42">
+
+  <mat-card class=" dark:bg-darkModecolors-59 w-96 mx-auto max-w-sm rounded overflow-hidden shadow-lg">
+    <mat-card-title> <p><img src="assets/img/logo1.png" class="h-40 mx-auto"></p></mat-card-title>
+    <mat-card-title class="font-bold text-3xl text-center text-vuejs-183 dark:text-white">LOGIN</mat-card-title>
     <mat-card-content>
       <form
       *ngIf="!isLoggedIn"
@@ -14,17 +14,18 @@
       novalidate
     >
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required #username="ngModel"/>
+        <label for="username" class="text-black dark:text-white">Username</label>
+        <input type="text" class="form-control  appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="username" [(ngModel)]="form.username" required #username="ngModel"/>
         <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">
           Username is required!
         </div>
+
       </div>
 
 
       <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel"/>
+        <label for="password" class="text-black dark:text-white">Password</label>
+        <input type="password" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel"/>
 
 
         <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
@@ -36,13 +37,14 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-primary btn-block">
+        <button class="btn btn-primary btn-block bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...">
           Login
         </button>
       </div>
 
-      <div class="form-group">
-        <mat-card-title> <a (click)="registerPage()" routerLink="register" style="color: #256EEE;">Sign Up</a></mat-card-title>
+      <div class="form-group text-center">
+        <mat-card-title> <a (click)="registerPage()" routerLink="register" class="text-vuejs-183 dark:text-darkModecolors-252">Sign Up</a></mat-card-title>
+        <!-- <mat-card-title> <a (click)="darkT()" routerLink="register" style="color: #256EEE;">darkT</a></mat-card-title> -->
       </div>
 
       <div class="form-group">
@@ -57,6 +59,9 @@
     </form>
     </mat-card-content>
   </mat-card>
-  
+
 </div>
-</div>
+
+
+
+

@@ -1,21 +1,62 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="">
 <head>
   <meta charset="utf-8">
   <title>pccsdmgrweb</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-
 
   
-  <app-root></app-root>
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+<script>
+const userTheme = localStorage.getItem("theme")
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+
+$(document).ready(function() {
+  if(document.documentElement.classList.contains("dark")){
+    document.getElementById("sum").hidden = true;
+  }else{   
+    document.getElementById("moon").hidden = true;
+  }
+});
+
+
+if (userTheme === 'dark' || (!userTheme && systemTheme)) {
+  document.documentElement.classList.add('dark')
+  moonicon.classList.add("display-none");
+  
+} else {
+  document.documentElement.classList.remove('dark')
+  sumicon.classList.add("display-none");
+}
+
+
+function darkT(){
+if(document.documentElement.classList.contains("dark")){
+  document.documentElement.classList.remove('dark')
+  localStorage.setItem("theme","light")
+  document.getElementById("moon").hidden = true;
+  document.getElementById("sum").hidden = false;
+  
+}else{
+  document.documentElement.classList.add('dark')
+  localStorage.setItem("theme","dark")
+  document.getElementById("sum").hidden = true;
+  document.getElementById("moon").hidden = false;
+}
+}
+</script>
+
+
+
+</head>
+<body class="dark:bg-darkModecolors-42">
+  <app-root></app-root>
 </body>
 </html>

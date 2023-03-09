@@ -1,16 +1,18 @@
-<div class="col-md-12">
-	<div class="card card-container">
-		<img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
-		<form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+<div class="full w-full dark:bg-darkModecolors-42">
+	<div class="card w-auto m-48  dark:bg-darkModecolors-59 mx-auto max-w-sm rounded overflow-hidden shadow-lg">
+		<img src="assets/img/logo1.png" class="h-40 mx-auto">
+		<form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="p-3" novalidate>
 			<div class="form-group">
-				<label for="code">Enter the 6-digit code from your authenticator app</label> <input type="text" class="form-control" name="code" [(ngModel)]="form.code" required minlength="6" #code="ngModel" />
+				<label for="code" class="text-center text-black dark:text-white">Enter the 6-digit code from your authenticator app</label> 
+				<input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="code" [(ngModel)]="form.code" required minlength="6" #code="ngModel" />
 				<div class="alert alert-danger" role="alert" *ngIf="f.submitted && code.invalid">
 					<div *ngIf="code.errors.required">Code is required</div>
 					<div *ngIf="code.errors.minlength">Code must be at least 6 characters</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<button class="btn btn-primary btn-block">Login</button>
+				<button class="btn btn-primary btn-block bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...">Login</button>
 			</div>
 			<div class="form-group">
 				<div class="alert alert-danger" role="alert" *ngIf="isLoginFailed">Login failed: {{ errorMessage }}</div>

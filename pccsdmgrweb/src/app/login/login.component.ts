@@ -67,6 +67,10 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['../../register']);
   }
 
+  darkT(): void {
+    document.documentElement.classList.add('dark');
+  }
+
   login(data): void {
     this.tokenStorage.saveToken(data.accessToken);
       this.tokenStorage.saveUser(data);
