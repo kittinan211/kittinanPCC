@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public Token:any;
+  public Token = false;
 
   ngOnInit(): void {
-    if (this.tokenStorage.getToken()) {
-        this.Token = this.tokenStorage.getToken()
+    if (this.tokenStorage.getToken()) { 
+        this.Token = true;
     }
   }
   constructor(private tokenStorage: TokenStorageService ,private router: Router) { }

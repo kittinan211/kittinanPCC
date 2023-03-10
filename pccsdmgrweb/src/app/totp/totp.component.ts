@@ -47,6 +47,6 @@ export class TotpComponent implements OnInit {
   }
 
   reloadPage(): void {
-    this.router.navigate(['../../Employee']);
+    window.location.reload();
   }
 }
