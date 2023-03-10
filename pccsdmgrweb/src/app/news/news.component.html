@@ -114,20 +114,33 @@
           <h3 class="modal-title mb-4 text-xl font-medium text-gray-900 dark:text-white" id="updateEmployeeModalLabel">เพิ่มข่าว</h3>
         </div>
        <div class="modal-body">
-        <form #addNewsForm="ngForm">
+        <form #addNewsForm="ngForm"> 
 
           <div class="form-group">
             <label for="phone" class="text-gray-900 dark:text-white">URL รูปภาพข่าว</label>
-            <input type="email" #displayURL="ngModel" ngModel name="imgurl" id="imgurl" placeholder="Image URL" class="form-control  appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252">
+            <input type="text" required #displayURL="ngModel" ngModel name="imgurl"  id="imgurl" placeholder="Image URL" class="form-control  appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252">
+            <div class="alert-danger" *ngIf="displayURL.invalid">
+              <div *ngIf="displayURL?.touched && displayURL?.hasError('required')">URL is required</div>
+            </div>
          </div>
+         
 
         <div class="form-group">
             <label for="news_name" class="text-gray-900 dark:text-white">หัวข้อข่าว</label>
-            <input type="email" ngModel name="newsname" id="newsname" placeholder="ใส่หัวข้อข่าว" required class="form-control  appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252">
+            <input type="text" #displaynews_name="ngModel" minlength="5" maxlength="100" ngModel name="newsname" id="newsname" placeholder="ใส่หัวข้อข่าว" required class="form-control  appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252">
+            <div class="alert-danger" *ngIf="displaynews_name.invalid">
+              <div *ngIf="displaynews_name?.touched && displaynews_name?.hasError('required')">news name is required</div>
+              <div *ngIf="displaynews_name?.touched && displaynews_name?.errors.minlength">Display Name must be at least 5 characters</div>
+              <div *ngIf="displaynews_name?.touched && displaynews_name?.errors.maxlength">Display Name must be at most 100 characters</div>
+            </div>
          </div>
          <div class="form-group">
           <label for="news_detail" class="text-gray-900 dark:text-white">รายละเอียดข่าว</label>
-          <textarea  ngModel name="textnews" class="form-control dark:bg-darkModecolors-59 dark:text-darkModecolors-252" id="textnews" placeholder="ใส่รายละเอียดข่าว" rows="4" required></textarea>
+          <textarea minlength="5"  #displaynews_detail="ngModel"  ngModel name="textnews" class="form-control dark:bg-darkModecolors-59 dark:text-darkModecolors-252" id="textnews" placeholder="ใส่รายละเอียดข่าว" rows="4" required></textarea>
+          <div class="alert-danger" *ngIf="displaynews_detail">
+            <div *ngIf="displaynews_detail?.touched && displaynews_detail?.hasError('required')">detail is required</div>
+            <div *ngIf="displaynews_detail?.touched && displaynews_detail?.errors.minlength">detail must be at least 5 characters</div>
+          </div>
         </div>
 
           <label class="text-gray-900 dark:text-white">กรุณาเลือกไฟล์ที่ต้องการ Upload</label>
@@ -149,7 +162,7 @@
             <form enctype="multipart/form-data">
               <fieldset>
                 <div class="form-group">
-                  <div>
+                  <div >
                     <input id="filesname" type="file" name="filesname" (change)="onUploadFiles($event.target.files)" multiple class="form-control"  #filename required/>
                   </div>
                 </div>
@@ -157,7 +170,7 @@
             </form>
             <div class="modal-footer">
               <button type="button" id="add-employee-form" class="btn btn-secondary"(click)="datadismiss()"  data-dismiss="modal" >ปิด</button>
-              <button type="button" id="add-employee-form" class="btn btn-primary"(click)="addnews(addNewsForm.value)" data-dismiss="modal"  >อัปโหลด</button>
+              <button type="button" [disabled]="!addNewsForm.valid" id="add-employee-form" class="btn btn-primary"  data-dismiss="modal" (click)="addnews(addNewsForm.value)">อัปโหลด</button>
             </div>
           </form>
        </div>

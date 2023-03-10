@@ -29,11 +29,11 @@
 			</div>
 			<div class="form-group col-span-2">
 				<label for="username" class="text-black dark:text-white">User name</label>
-				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="username" [(ngModel)]="form.username" required minlength="3" maxlength="20" #displayName="ngModel" />
-				<div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
-					<div *ngIf="displayName.errors.required">User name is required</div>
-					<div *ngIf="displayName.errors.minlength">User name must be at least 3 characters</div>
-					<div *ngIf="displayName.errors.maxlength">User name must be at most 20 characters</div>
+				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="username" [(ngModel)]="form.username" required minlength="3" maxlength="20" #displayusername="ngModel" />
+				<div class="alert-danger" *ngIf="f.submitted && displayusername.invalid">
+					<div *ngIf="displayusername.errors.required">User name is required</div>
+					<div *ngIf="displayusername.errors.minlength">User name must be at least 3 characters</div>
+					<div *ngIf="displayusername.errors.maxlength">User name must be at most 20 characters</div>
 				</div>
 			</div>
 
@@ -58,41 +58,40 @@
 
 			<div class="form-group">
 				<label for="department" class="text-black dark:text-white">department</label>
-				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="department" [(ngModel)]="form.department" required minlength="1" maxlength="20" #displayName="ngModel" />
-				<div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
-					<div *ngIf="displayName.errors.required">department  is required</div>
-					<div *ngIf="displayName.errors.minlength">department  must be at least 1 characters</div>
-					<div *ngIf="displayName.errors.maxlength">department  must be at most 20 characters</div>
+				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="department" [(ngModel)]="form.department" required minlength="1" maxlength="20" #displaydepartment="ngModel" />
+				<div class="alert-danger" *ngIf="f.submitted && displaydepartment.invalid">
+					<div *ngIf="displaydepartment.errors.required">department  is required</div>
+					<div *ngIf="displaydepartment.errors.minlength">department  must be at least 1 characters</div>
+					<div *ngIf="displaydepartment.errors.maxlength">department  must be at most 20 characters</div>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="jobTitle" class="text-black dark:text-white">jobTitle</label>
-				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="jobTitle" [(ngModel)]="form.jobTitle" required minlength="1" maxlength="20" #displayName="ngModel" />
-				<div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
-					<div *ngIf="displayName.errors.required">jobTitle is required</div>
-					<div *ngIf="displayName.errors.minlength">jobTitle must be at least 1 characters</div>
-					<div *ngIf="displayName.errors.maxlength">jobTitle must be at most 20 characters</div>
+				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="jobTitle" [(ngModel)]="form.jobTitle" required minlength="1" maxlength="20" #displayjobTitle="ngModel" />
+				<div class="alert-danger" *ngIf="f.submitted && displayjobTitle.invalid">
+					<div *ngIf="displayjobTitle.errors.required">jobTitle is required</div>
+					<div *ngIf="displayjobTitle.errors.minlength">jobTitle must be at least 1 characters</div>
+					<div *ngIf="displayjobTitle.errors.maxlength">jobTitle must be at most 20 characters</div>
 				</div>
 			</div>
 
 			<div class="form-group col-span-2">
 				<label for="phone" class="text-black dark:text-white">phone</label>
-				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="phone" [(ngModel)]="form.phone" required minlength="1" maxlength="20" #displayName="ngModel" />
-				<div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
-					<div *ngIf="displayName.errors.required">jobTitle is required</div>
-					<div *ngIf="displayName.errors.minlength">jobTitle must be at least 1 characters</div>
-					<div *ngIf="displayName.errors.maxlength">jobTitle must be at most 20 characters</div>
+				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="phone" [(ngModel)]="form.phone" required minlength="10" maxlength="10" #displayphone="ngModel" />
+				<div class="alert-danger" *ngIf="f.submitted && displayphone.invalid">
+					<div *ngIf="displayphone.errors.required">phone is required</div>
+					<div *ngIf="displayphone.errors.minlength">phone must be at least 10 characters</div>
+					<div *ngIf="displayphone.errors.maxlength">phone must be at most 10 characters</div>
 				</div>
 			</div>
 
 			<div class="form-group col-span-2">
 				<label for="imageUrl" class="text-black dark:text-white">imageUrl</label>
-				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="imageUrl" [(ngModel)]="form.imageUrl" required  #displayName="ngModel" />
-				<div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
-					<div *ngIf="displayName.errors.required">jobTitle is required</div>
-					<div *ngIf="displayName.errors.minlength">jobTitle must be at least 1 characters</div>
-					<div *ngIf="displayName.errors.maxlength">jobTitle must be at most 20 characters</div>
+				 <input type="text" class="form-control appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none dark:bg-darkModecolors-59 dark:text-darkModecolors-252" name="imageUrl" [(ngModel)]="form.imageUrl" required  #displayimageUrl="ngModel" />
+				<div class="alert-danger" *ngIf="f.submitted && displayimageUrl.invalid">
+					<div *ngIf="displayimageUrl.errors.required">imageUrl is required</div>
+
 				</div>
 			</div>
 

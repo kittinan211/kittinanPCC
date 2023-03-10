@@ -24,6 +24,7 @@ export class NewsComponent implements OnInit {
   getname: any;
   date:Date;
   dateText:string;
+  form: any = {};
 
 
   constructor(private fileService: FileService ,private tokenStorage: TokenStorageService ,private router: Router,private datepipe: DatePipe) { }
@@ -96,8 +97,9 @@ export class NewsComponent implements OnInit {
     }
   }
 
-  addnews(newsdata : filenews): void {
-    this.fileService.addnews(newsdata).subscribe(
+  addnews(filenewsN: filenews): void {
+
+    this.fileService.addnews(filenewsN).subscribe(
       data => {
         this.UploadFiles(data);
       },
